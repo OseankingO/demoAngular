@@ -1,0 +1,47 @@
+<table id="posts">
+    <tr>
+        <th *ngFor = "let col of headers">
+            {{ col }}
+        </th>
+    </tr>
+    <tr *ngFor = "let post of posts">
+        <!-- <td *ngFor = "let col of headersJson">
+            <input type="text">
+            {{ post[col] }}
+        </td> -->
+        <td>
+            <input type="number" class="postIdInput" id="{{post['id']}}PostIdInput" value="{{post['id']}}">
+        </td>
+        <td>
+            <input type="number" class="userIdInput" id="{{post['id']}}UserIdInput" value="{{post['userId']}}">
+        </td>
+        <td>
+            <input type="text" class="titleInput" id="{{post['id']}}TitleInput" value="{{post['title']}}">
+        </td>
+        <td>
+            <input type="text" class="bodyInput" id="{{post['id']}}BodyInput" value="{{post['body']}}">
+        </td>
+        <td>
+            <button class="updateButton" id="{{post['id']}}UpdateButton" (click)="updatePostById($event)">Update</button>
+        </td>
+        <td>
+            <button class="deletButton" id="{{post['id']}}DeletButton" (click)="deletePostById($event)">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="number" [(ngModel)]="createId"></td>
+        <td>
+            <input type="number" [(ngModel)]="createUserId">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="createTitle">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="createBody">
+        </td>
+        <td>
+            <button (click)="createPost()">Create</button>
+        </td>
+    </tr>
+</table>
+
