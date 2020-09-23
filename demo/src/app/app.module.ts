@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DemoComponentComponent } from './demo-component/demo-component.component';
 import { LogInputDirective } from './directives/LogInputDirective'
-import { PostComponentComponent } from './post-component/post-component.component'
+import { PostComponentComponent } from './post-component/post-component.component';
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PostComponentComponent } from './post-component/post-component.componen
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,9 +28,6 @@ export class PostComponentComponent implements OnInit {
     this.demoService.getAllPost().subscribe(data => {
       console.log("Post All!!!!!");
       this.posts = data;
-      // for(let i = 0; i < this.posts.length; i ++) {
-      //   document.getElementById("posts").innerHTML += "<tr><td>" + this.posts[i].id + "</td><td>" + this.posts[i].userId + "</td><td>" + this.posts[i].title + "</td><td>" + this.posts[i].body + "</tr>";
-      // }
     });
   }
 
@@ -48,13 +45,19 @@ export class PostComponentComponent implements OnInit {
       title : this.createTitle,
       body : this.createBody
     }
-    console.log(post);
+    this.createId = null;
+    this.createUserId = null;
+    this.createTitle = null;
+    this.createBody = null;
+    this.posts.push(post);
     console.log(this.demoService.createPost(post));
   }
 
   public deletePostById(event) {
     let buttonId= event.target.attributes.id.nodeValue;
     let postId = buttonId.replace("DeletButton", "");
+    let updatePostIndex = this.posts.findIndex(i => i.id === Number(postId));
+    this.posts.splice(updatePostIndex, 1);
     this.demoService.deletePostById(postId);
   }
 
@@ -71,6 +74,8 @@ export class PostComponentComponent implements OnInit {
       title : newTitle,
       body : newBody
     };
+    let updatePostIndex = this.posts.findIndex(i => i.id === Number(postId));
     this.demoService.updatePost(postId, newPost);
+    this.posts[updatePostIndex] = newPost;
   }
 }
