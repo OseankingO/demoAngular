@@ -49,8 +49,8 @@ export class PostComponentComponent implements OnInit {
     this.createUserId = null;
     this.createTitle = null;
     this.createBody = null;
+    this.demoService.createPost(post);
     this.posts.push(post);
-    console.log(this.demoService.createPost(post));
   }
 
   public deletePostById(event) {
