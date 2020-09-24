@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { DemoComponentComponent } from './demo-component/demo-component.component';
 import { LogInputDirective } from './directives/LogInputDirective'
 import { PostComponentComponent } from './post-component/post-component.component';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { AppRoutingModule } from './app-routing.module'
     DemoComponentComponent,
     LogInputDirective,
     
-    PostComponentComponent
+    PostComponentComponent,
+    
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
